@@ -16,9 +16,9 @@ use SprykerShop\Yves\AssetExternalWidget\Dependency\Client\AssetExternalWidgetTo
 class AssetExternalWidgetDataProvider implements AssetExternalWidgetDataProviderInterface
 {
     /**
-     * @var string|null
+     * @var string
      */
-    protected static $currentStore;
+    protected static $currentStoreName;
 
     /**
      * @var \SprykerShop\Yves\AssetExternalWidget\Dependency\Client\AssetExternalWidgetToAssetExternalStorageClientInterface
@@ -66,14 +66,14 @@ class AssetExternalWidgetDataProvider implements AssetExternalWidgetDataProvider
     }
 
     /**
-     * @return string|null
+     * @return string
      */
-    protected function getCurrentStoreName(): ?string
+    protected function getCurrentStoreName(): string
     {
-        if (!static::$currentStore) {
-            static::$currentStore = $this->storeClient->getCurrentStore()->getName();
+        if (!static::$currentStoreName) {
+            static::$currentStoreName = $this->storeClient->getCurrentStore()->getNameOrFail();
         }
 
-        return static::$currentStore;
+        return static::$currentStoreName;
     }
 }
