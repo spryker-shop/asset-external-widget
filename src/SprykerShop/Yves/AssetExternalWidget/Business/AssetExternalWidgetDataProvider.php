@@ -16,14 +16,19 @@ use SprykerShop\Yves\AssetExternalWidget\Dependency\Client\AssetExternalWidgetTo
 class AssetExternalWidgetDataProvider implements AssetExternalWidgetDataProviderInterface
 {
     /**
+     * @var string|null
+     */
+    protected static $currentStore;
+
+    /**
      * @var \SprykerShop\Yves\AssetExternalWidget\Dependency\Client\AssetExternalWidgetToAssetExternalStorageClientInterface
      */
-    private $assetExternalStorageClient;
+    protected $assetExternalStorageClient;
 
     /**
      * @var \SprykerShop\Yves\AssetExternalWidget\Dependency\Client\AssetExternalWidgetToStoreClientInterface
      */
-    private $storeClient;
+    protected $storeClient;
 
     /**
      * @param \SprykerShop\Yves\AssetExternalWidget\Dependency\Client\AssetExternalWidgetToAssetExternalStorageClientInterface $assetExternalStorageClient
@@ -46,7 +51,7 @@ class AssetExternalWidgetDataProvider implements AssetExternalWidgetDataProvider
     {
         $assetExternalStorageCollectionCriteriaTransfer = (new AssetExternalStorageCollectionCriteriaTransfer())
             ->setSlotKey($cmsSlotContentRequestTransfer->getCmsSlotKey())
-            ->setStoreName($this->storeClient->getCurrentStore()->getName());
+            ->setStoreName($this->getCurrentStoreName());
 
         $assetExternalStorageCollectionTransfer = $this->assetExternalStorageClient
             ->getAssetExternalCollectionForCmsSlot($assetExternalStorageCollectionCriteriaTransfer);
@@ -58,5 +63,17 @@ class AssetExternalWidgetDataProvider implements AssetExternalWidgetDataProvider
 
         return (new CmsSlotContentResponseTransfer())
             ->setContent($content);
+    }
+
+    /**
+     * @return string|null
+     */
+    protected function getCurrentStoreName(): ?string
+    {
+        if (!static::$currentStore) {
+            static::$currentStore = $this->storeClient->getCurrentStore()->getName();
+        }
+
+        return static::$currentStore;
     }
 }
