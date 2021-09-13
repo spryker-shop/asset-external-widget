@@ -7,7 +7,7 @@
 
 namespace SprykerShop\Yves\AssetExternalWidget\Business;
 
-use Generated\Shared\Transfer\AssetExternalStorageCollectionCriteriaTransfer;
+use Generated\Shared\Transfer\AssetExternalStorageCriteriaTransfer;
 use Generated\Shared\Transfer\CmsSlotContentRequestTransfer;
 use Generated\Shared\Transfer\CmsSlotContentResponseTransfer;
 use SprykerShop\Yves\AssetExternalWidget\Dependency\Client\AssetExternalWidgetToAssetExternalStorageClientInterface;
@@ -49,12 +49,12 @@ class AssetExternalWidgetDataProvider implements AssetExternalWidgetDataProvider
      */
     public function getSlotContent(CmsSlotContentRequestTransfer $cmsSlotContentRequestTransfer): CmsSlotContentResponseTransfer
     {
-        $assetExternalStorageCollectionCriteriaTransfer = (new AssetExternalStorageCollectionCriteriaTransfer())
+        $assetExternalStorageCriteriaTransfer = (new AssetExternalStorageCriteriaTransfer())
             ->setSlotKey($cmsSlotContentRequestTransfer->getCmsSlotKey())
             ->setStoreName($this->getCurrentStoreName());
 
         $assetExternalStorageCollectionTransfer = $this->assetExternalStorageClient
-            ->getAssetExternalCollectionForCmsSlot($assetExternalStorageCollectionCriteriaTransfer);
+            ->getAssetExternalCollectionForCmsSlot($assetExternalStorageCriteriaTransfer);
 
         $content = '';
         foreach ($assetExternalStorageCollectionTransfer->getAssetsExternalStorage() as $assetExternalStorageTransfer) {
