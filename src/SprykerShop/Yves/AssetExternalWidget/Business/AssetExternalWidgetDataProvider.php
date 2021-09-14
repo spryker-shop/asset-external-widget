@@ -54,7 +54,7 @@ class AssetExternalWidgetDataProvider implements AssetExternalWidgetDataProvider
             ->setStoreName($this->getCurrentStoreName());
 
         $assetExternalStorageCollectionTransfer = $this->assetExternalStorageClient
-            ->getAssetExternalCollectionForCmsSlot($assetExternalStorageCriteriaTransfer);
+            ->getAssetExternalCollection($assetExternalStorageCriteriaTransfer);
 
         $content = '';
         foreach ($assetExternalStorageCollectionTransfer->getAssetsExternalStorage() as $assetExternalStorageTransfer) {
