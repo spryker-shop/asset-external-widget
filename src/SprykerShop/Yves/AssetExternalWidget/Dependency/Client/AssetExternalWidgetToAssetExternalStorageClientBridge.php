@@ -34,6 +34,6 @@ class AssetExternalWidgetToAssetExternalStorageClientBridge implements AssetExte
         AssetExternalStorageCriteriaTransfer $assetExternalStorageCriteriaTransfer
     ): AssetExternalStorageCollectionTransfer {
         return $this->assetExternalStorageClient
-            ->getAssetExternalCollectionForCmsSlot($assetExternalStorageCriteriaTransfer);
+            ->getAssetExternalCollection($assetExternalStorageCriteriaTransfer);
     }
 }
