@@ -7,8 +7,8 @@
 
 namespace SprykerShop\Yves\AssetExternalWidget\Dependency\Client;
 
-use Generated\Shared\Transfer\AssetExternalStorageCriteriaTransfer;
 use Generated\Shared\Transfer\AssetExternalStorageCollectionTransfer;
+use Generated\Shared\Transfer\AssetExternalStorageCriteriaTransfer;
 
 interface AssetExternalWidgetToAssetExternalStorageClientInterface
 {

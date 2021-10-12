@@ -14,7 +14,14 @@ use SprykerShop\Yves\AssetExternalWidget\Dependency\Client\AssetExternalWidgetTo
 
 class AssetExternalWidgetDependencyProvider extends AbstractBundleDependencyProvider
 {
+    /**
+     * @var string
+     */
     public const CLIENT_ASSET_EXTERNAL_STORAGE = 'CLIENT_ASSET_EXTERNAL_STORAGE';
+
+    /**
+     * @var string
+     */
     public const CLIENT_STORE = 'CLIENT_STORE';
 
     /**
