@@ -4,12 +4,12 @@
     "description": "AssetExternalWidget module",
     "license": "proprietary",
     "require": {
-        "php": ">=7.3",
+        "php": ">=7.4",
         "spryker-shop/shop-cms-slot-extension": "^1.0.0",
         "spryker/asset-external-storage": "dev-beta/app-store-demo",
         "spryker/kernel": "^3.30.0",
         "spryker/store": "^1.8.0",
-        "spryker/transfer": "^3.25.0"
+        "spryker/transfer": "^3.27.0"
     },
     "require-dev": {
         "spryker/code-sniffer": "*"
