@@ -25,7 +25,7 @@ class AssetExternalWidgetFactory extends AbstractFactory
     {
         return new AssetExternalWidgetDataProvider(
             $this->getAssetExternalStorageClient(),
-            $this->getStoreClient()
+            $this->getStoreClient(),
         );
     }
 

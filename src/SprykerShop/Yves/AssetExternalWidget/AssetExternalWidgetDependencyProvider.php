@@ -12,6 +12,9 @@ use Spryker\Yves\Kernel\Container;
 use SprykerShop\Yves\AssetExternalWidget\Dependency\Client\AssetExternalWidgetToAssetExternalStorageClientBridge;
 use SprykerShop\Yves\AssetExternalWidget\Dependency\Client\AssetExternalWidgetToStoreClientBridge;
 
+/**
+ * @method \SprykerShop\Yves\AssetExternalWidget\AssetExternalWidgetConfig getConfig()
+ */
 class AssetExternalWidgetDependencyProvider extends AbstractBundleDependencyProvider
 {
     /**
@@ -46,7 +49,7 @@ class AssetExternalWidgetDependencyProvider extends AbstractBundleDependencyProv
     {
         $container->set(static::CLIENT_ASSET_EXTERNAL_STORAGE, function (Container $container) {
             return new AssetExternalWidgetToAssetExternalStorageClientBridge(
-                $container->getLocator()->assetExternalStorage()->client()
+                $container->getLocator()->assetExternalStorage()->client(),
             );
         });
 
@@ -62,7 +65,7 @@ class AssetExternalWidgetDependencyProvider extends AbstractBundleDependencyProv
     {
         $container->set(static::CLIENT_STORE, function (Container $container) {
             return new AssetExternalWidgetToStoreClientBridge(
-                $container->getLocator()->store()->client()
+                $container->getLocator()->store()->client(),
             );
         });
 
